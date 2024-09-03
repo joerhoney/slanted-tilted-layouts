@@ -97,6 +97,9 @@
         right: -50%;
         padding-right: 50%;
       }
+      .cqw {
+        padding: 1cqw;
+      }
       .tri-pt-0, .tri-py-0 {
         padding-top: 0;
       }
@@ -164,15 +167,15 @@
           <img class="transform -skew-y-12 mb-2 tri-rmt translucent" src="https://images.unsplash.com/photo-1475257026007-0753d5429e10?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQwODI0Njl8&ixlib=rb-4.0.3&q=55" alt="Damp leaves">
           <div class="transform -skew-y-12 relative tri-pb z-1 px-7 lg:px-14">
             <h1>Slanted & Tilted Layouts</h1>
-            <p>In this Pen we explore the possibilities and challanges of creating a unique sort of layout, using tilted (rotated) and slanted (skewed) boxes.</p>
+            <p>In this repo we explore the possibilities and challanges of creating a unique sort of layout, using tilted (rotated) and slanted (skewed) boxes.</p>
           </div>
         </div>
         <div class="column bg-gray-700 z-0">
           <div class="transform -skew-y-12 px-7 lg:px-14 tri-pb">
             <h3>Using Tailwind</h3>
-            <p>As we don't want to lose reinventing the wheel and we do want to exercise best practices, let's use a CSS utilitarian library to do the heavy lifting for us. I rejected Tailwind for several years, thinking it was too similar to inline styles. But Tailwind at least addresses one major deal-killer with inline styles, which is no query support. What good is a layout today that isn't responsive?</p>
-            <p>The initial approach here was to introduce a small handful of classes which would cover the few things Tailwind can't really do. But as I gradiently learned more about Tailwind, the amount of custom CSS needed kept widdling down, and I ended up deleting over half of it. But this made me apprciate what Tailwind does even more and I learned a LOT more about Sass and CSS as well. So I don't regret having gone to great lengths only to undo it all, actually.</p>
-            <p>The point is, Tailwind can practially do anything, even a crazy idea such as this one.</p>
+            <p>As we don't want to lose time reinventing the wheel and we do want to exercise best practices, let's use a utility-first CSS library to do the heavy lifting for us. I rejected Tailwind for several years, thinking it was too similar to inline styles. But Tailwind at least addresses one major deal-killer with inline styles, which is no query support. What good is a layout today that isn't responsive?</p>
+            <p>The initial approach here was to introduce supplementary classes which would cover the few things Tailwind can't really do. But as I gradiently learned more about Tailwind, the amount of custom CSS needed kept dwindling, and I ended up deleting over half of it. But this made me apprciate what Tailwind does even more and I learned a LOT more about Sass and CSS as well (including why some CSS preprocessors are not recommended with Tailwind). So I don't regret having gone to such great lengths only to undo a bunch of it.</p>
+            <p><strong>IMPORTANT</strong>: Please note that this is a work in progress and could be better optimized. New interations of this experiment will aim to utilize Tailwind as recommended by its <a href="https://tailwindcss.com/docs/installation">documentation</a>.</p>
           </div>
         </div>
       </div>
@@ -313,7 +316,7 @@
           <div class="absolute inset-0 reach-left bg-gray-800 md:bg-gray-700"></div>
           <div class="relative -skew-y-12 md:skew-y-0 transform tri-py">
             <h2>Triangular Padding</h2>
-            <p>Tailwind's default measurement system mostly uses <code>rem</code> units. This is fine in most cases, but not very practical for maintaining our necessary aspect-ratio. You could customize Tailwind to use something like <code>vw</code> or <code>cqw</code>, but this isn't recommended. Generally, Tailwind should be used as-is and only added to, if anything. Tailwind allows us to use arbitrary values such as <code>pt-[12cqw]</code> (<code>padding-top: 12cqw;</code>), and that may be more ideal overall. It doesn't work here on Codepen though, so it probably won't work in some other environments. To adhere to an aspect-ratio, the container width needs to be observed so the proper space can be calculated accordingly. We really need to use the <code>cqw</code> unit or at least <code>vw</code>. Without this, the tops and bottoms of the tilted or slanted elements with either be too big on some devices, or the text will spill out on other devices, or both.</p>
+            <p>Tailwind's default measurement system mostly uses <code>rem</code> units. This is fine in most cases, but not very practical for maintaining our necessary aspect-ratio. You could customize Tailwind to use something like <code>vw</code> or <code>cqw</code>, but this isn't recommended. Generally, Tailwind should be used as-is and only added to, if anything. Tailwind allows us to use arbitrary values in our HTML such as <code>pt-[12cqw]</code> (<code>padding-top: 12cqw;</code>), and that may be considered better practice. I'm not a fan of the idea, myself. To adhere to an aspect-ratio, the container width needs to be observed so the proper space can be calculated accordingly. We really need to use the <code>cqw</code> unit or at least <code>vw</code>. Without this, the tops and bottoms of the tilted or slanted elements will either be too big on some devices, or the text will spill out on other devices, or both.</p>
           </div>
         </div>
         <div class="column relative transform">
@@ -459,7 +462,7 @@
         </div>
         <div class="column transform -skew-y-12 md:skew-y-0 md:-rotate-12 px-7 lg:px-14">
           <div class="tri-pb pt-4 md:tri-py">
-            <p>To follow the patterns of Tailwind more closely, these classes could have been written with numeric variants, like <code>tri-py-12</code>, instead of basing it all on these variables. Perhaps there is a good way to programatically do that in a tailwind.config file. But here on Codepen, supporting the same numeric increments as Tailwind would require a great deal of additional SCSS, and that is definitely not the point of this demonstration.</p>
+            <p>To follow the patterns of Tailwind more closely, these classes could have been written with numeric variants, like <code>tri-py-3</code>, instead of basing it all on these variables. Perhaps there is a good way to programatically do that in a tailwind.config file. But here on Codepen, supporting the same numeric increments as Tailwind would require a great deal of additional SCSS, and that is definitely not the point of this demonstration.</p>
           </div>
         </div>
       </div>
