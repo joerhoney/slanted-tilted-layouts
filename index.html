@@ -216,7 +216,7 @@
       <div class=" flex flex-col md:flex-row">
         <div class="column w-full px-7 md:pr-14 lg:px-14">
           <!--         <div class="absolute inset-0 reach-left bg-gray-600"></div> -->
-          <div class="transform -skew-y-12 md:skew-y-0 md:-rotate-12 tri-child-py">
+          <div class="transform -skew-y-12 md:skew-y-0 md:-rotate-12 tri-py">
             <h2>Tilted Boxes</h2>
             <p>You can immediatly see the difference "tilted" boxes have from "slanted" when you introduce columns (which you'll only see here on widers screens). It's almost such a different look that you could arguably say don't go together, design-wise. It's obvious with anything else box shaped as well, such as images. But certainly it's a really cool look on its own and quite popular, as can be observed in much of today's marketing. I'm a fan of it myself, so I wanted to do something to make its many caveats easier to cope with.</p>
           </div>
@@ -268,7 +268,7 @@
             <p>We can (and should) avoid making our tilted boxes too tall, or break their inner content into short boxes, individually rotated. However, even if we do this, we will have protruding box corners with anything we rotate (because everything in HTML is box shaped, even if you can't see it). To deal with this, the best solution I have found is to cut the corners off with a wrapper, using <code>overflow-hidden</code> (a Tailwind class).</p>
           </div>
         </div>
-        <div class="column relative overflow-hidden md:overflow-visible pb-14 md:pt-14 px-7 lg:px-14 bg-gray-700 md:bg-gray-600">
+        <div class="column relative overflow-hidden md:overflow-visible pt-7 md:pt-14 px-7 lg:px-14 bg-gray-700 md:bg-gray-600">
           <ul class="transform -skew-y-12 md:skew-y-0 italic md:not-italic relative z-1">
             <li class="transform skew-y-12 md:skew-y-0 header-font">Keep boxes from growing too tall, or...</li>
             <li class="transform skew-y-12 md:skew-y-0 header-font">Break it down: individaully rotate shorter items within.</li>
@@ -286,10 +286,10 @@
   
     <section class="transform skew-y-12 md:skew-y-0 md:rotate-12">
       <div class="flex flex-col md:flex-row-reverse">
-        <div class="column tri-child-pb px-7 md:pr-24 lg:px-14">
+        <div class="column px-7 md:pr-24 lg:px-14">
           <div class="absolute inset-0 md:reach-right z-1 bg-gray-600"></div>
-          <div class="transform -skew-y-12 md:skew-y-0 relative">
-            <h2 class="tri-pt transform rotate-12 md:-rotate-12">Utilitarian Flexibility</h2>
+          <div class="transform py-14 -skew-y-12 md:skew-y-0 relative">
+            <h2 class="transform rotate-12 md:-rotate-12">Utilitarian Flexibility</h2>
             <p class="transform rotate-12 md:-rotate-12">Aside from the reasons mentioned above, the utilitarian approach we're using in this demo gives us much flexibility.</p>
             <p class="transform rotate-12 md:-rotate-12">I wanted to be able to do things like reverse row directions and insert an number of columns.</p>
             <p class="transform rotate-12 md:-rotate-12">You might have noticed this row is reversed (except on small devices), yet we still haven't had to come up with any costume CSS for it.</p>
