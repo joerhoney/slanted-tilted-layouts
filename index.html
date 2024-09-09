@@ -168,6 +168,7 @@
           <div class="transform -skew-y-12 relative tri-pb z-1 px-7 lg:px-14">
             <h1>Slanted & Tilted Layouts</h1>
             <p>In this repo we explore the possibilities and challanges of creating a unique sort of layout, using tilted (rotated) and slanted (skewed) boxes.</p>
+            <p><strong>IMPORTANT</strong>: Please note that this is a work in progress and could be better optimized. New iterations of this experiment will aim to utilize Tailwind more closely to its <a href="https://tailwindcss.com/docs/installation">documentation</a>.</p>
           </div>
         </div>
         <div class="column bg-gray-700 z-0">
@@ -175,7 +176,6 @@
             <h3>Using Tailwind</h3>
             <p>As we don't want to lose time reinventing the wheel and we do want to exercise best practices, let's use a utility-first CSS library to do the heavy lifting for us. I rejected Tailwind for several years, thinking it was too similar to inline styles. But Tailwind at least addresses one major deal-killer with inline styles, which is no query support. What good is a layout today that isn't responsive?</p>
             <p>The initial approach here was to introduce supplementary classes which would cover the few things Tailwind can't really do. But as I gradiently learned more about Tailwind, the amount of custom CSS needed kept dwindling, and I ended up deleting over half of it. But this made me apprciate what Tailwind does even more and I learned a LOT more about Sass and CSS as well (including why some CSS preprocessors are not recommended with Tailwind). So I don't regret having gone to such great lengths only to undo a bunch of it.</p>
-            <p><strong>IMPORTANT</strong>: Please note that this is a work in progress and could be better optimized. New interations of this experiment will aim to utilize Tailwind as recommended by its <a href="https://tailwindcss.com/docs/installation">documentation</a>.</p>
           </div>
         </div>
       </div>
@@ -428,7 +428,7 @@
           </div>
         </div>
         <div class="column transform -skew-y-12 md:skew-y-0 md:-rotate-12 px-7 lg:px-14">
-          <div class="tri-pb md:tri-py">
+          <div class="pb-7 md:tri-py">
             <p>So I created classes for that too:</p>
             <ul>
               <li><code>reach</code></li>
