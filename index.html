@@ -296,12 +296,12 @@
             <p class="transform rotate-12 md:-rotate-12">So far Tailwind covers everything we have aimed to achieve, and we can control and understand it right within our HTML.</p>
           </div>
         </div>
-        <div class="column tri-py px-7 md:pl-24">
+        <div class="column px-7 md:pl-24">
           <div class="absolute inset-0 md:reach-left z-1 bg-gray-700"></div>
           <div class="overflow-hidden relative md:-ml-14 bg-gray-700">
-            <img class="transform -skew-y-12 md:skew-y-0 translucent" src="https://images.unsplash.com/photo-1505226755626-21044548b8aa?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjMwNzg1NTl8&ixlib=rb-4.0.3&q=55" alt="Camera">
+            <img class="tri-pt transform -skew-y-12 md:skew-y-0 translucent" src="https://images.unsplash.com/photo-1505226755626-21044548b8aa?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjMwNzg1NTl8&ixlib=rb-4.0.3&q=55" alt="Camera">
           </div>
-          <div class="relative relative">
+          <div class="relative pb-14 md:tri-pb">
             <p class="md:transform md:-rotate-12 italic md:not-italic">So if we can do almost everything we need to in this demo with Tailwind CSS, what's left and what's the point of this demonstration?</p>
             <p class="md:transform md:-rotate-12 italic md:not-italic">Focusing again on the corners of a skewed or rotated box, have you noticed we are actually now dealing with a triangular space?</p>
             <p class="md:transform md:-rotate-12 italic md:not-italic">And if you change the width of this viewport, have you noticed those triangular spaces scale with a proportional aspect-ratio?</p>
@@ -331,18 +331,18 @@
       <div class="absolute inset-0" style="overflow: hidden;">
         <img class="transform -skew-y-12 tri-cover translucent opacity-50 object-center" src="https://images.unsplash.com/photo-1723444585217-56393cc4946a?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ5NTAxMDB8&ixlib=rb-4.0.3&q=55" alt="Flower garden">
       </div>
-      <div class="flex flex-col md:flex-row pt-14 lg:pt-20">
-        <div class="column transform italic px-7 md:pb-14 lg:px-14">
+      <div class="flex flex-col md:flex-row">
+        <div class="column transform italic px-7 pt-14 md:pb-14 lg:px-14">
           <p>So our first custom class will address the triangular space we get from skewing and rotating. Now to make it easy-ish to remember these new classes, and since most classes used in the project are those of Tailwind, let's follow Tailwind's syntax as much as we can. Tailwind syntax is short, so for "triangular space" let's just use <code>tri-</code>. Then, as this is a type of padding, let's borrow Tailwind's <code>pt</code>, <code>pb</code>, etc. And since this is custom, we don't need to support tons of variants like <code>tri-pt-6</code>, <code>tri-pt-7</code>, ..., etc. Let's just use the container aspect-ratio that will work for our project, which in this case is <code>12cqw</code>. (I just played around with it to find that number, but usually this would be close to the number of degrees you are using for your slants and tilts.)</p>
         </div>
-        <div class="column transform -skew-y-12 px-7 lg:px-14 tri-py md:tri-pt-0">
-          <p>Here are the classes for the job:</p>
+        <div class="column transform -skew-y-12 px-7 lg:px-14">
+          <p class="tri-pt">Here are the classes for the job:</p>
           <ul>
             <li><code>tri-pt</code> = <code>padding-top: var(--triangle-pos);</code></li>
             <li><code>tri-pb</code> = <code>padding-bottom: var(--triangle-pos);</code></li>
             <li><code>tri-py</code> = <code>padding-top: var(--triangle-pos); padding-bottom: var(--triangle-pos);</code></li>
           </ul>
-          <p><code>var(--triangle-pos)</code> is a CSS variable I set, which equals <code>12cqw</code>. This should generate the right amount of padding for the triangular space, based upon the width of the container element.</p>
+          <p class="tri-pb"><code>var(--triangle-pos)</code> is a CSS variable I set, which equals <code>12cqw</code>. This should generate the right amount of padding for the triangular space, based upon the width of the container element.</p>
         </div>
       </div>
     </section>
