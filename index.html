@@ -167,15 +167,15 @@
           <img class="transform -skew-y-12 mb-2 tri-rmt translucent" src="https://images.unsplash.com/photo-1475257026007-0753d5429e10?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQwODI0Njl8&ixlib=rb-4.0.3&q=55" alt="Damp leaves">
           <div class="transform -skew-y-12 relative tri-pb z-1 px-7 lg:px-14">
             <h1>Slanted & Tilted Layouts</h1>
-            <p>In this repo we explore the possibilities and challanges of creating a unique sort of layout, using tilted (rotated) and slanted (skewed) boxes.</p>
-            <p><strong>IMPORTANT</strong>: Please note that this is a work in progress and could be better optimized. New iterations of this experiment will aim to utilize Tailwind more closely to its <a href="https://tailwindcss.com/docs/installation">documentation</a>.</p>
+            <p>In this repo we'll explore the possibilities and challanges of creating a unique sort of layout, using tilted (rotated) and slanted (skewed) boxes. While walking you through the ins and outs of this endeavor with in-depth explaination, this page also serves as a technical example. Feel free to inspect the code, so see how the concepts it describes can be implemented.</p>
+            <p><strong>IMPORTANT</strong>: Please note that this is a work in progress and could be better optimized. New iterations of this experiment will aim to utilize Tailwind more in favor of the recommendations in its <a href="https://tailwindcss.com/docs/installation">documentation</a>.</p>
           </div>
         </div>
         <div class="column bg-gray-700 z-0">
           <div class="transform -skew-y-12 px-7 lg:px-14 tri-pb">
             <h3>Using Tailwind</h3>
             <p>As we don't want to lose time reinventing the wheel and we do want to exercise best practices, let's use a utility-first CSS library to do the heavy lifting for us. I rejected Tailwind for several years, thinking it was too similar to inline styles. But Tailwind at least addresses one major deal-killer with inline styles, which is no query support. What good is a layout today that isn't responsive?</p>
-            <p>The initial approach here was to introduce supplementary classes which would cover the few things Tailwind can't really do. But as I gradiently learned more about Tailwind, the amount of custom CSS needed kept dwindling, and I ended up deleting over half of it. But this made me apprciate what Tailwind does even more and I learned a LOT more about Sass and CSS as well (including why some CSS preprocessors are not recommended with Tailwind). So I don't regret having gone to such great lengths only to undo a bunch of it.</p>
+            <p>The initial approach here was to introduce supplementary classes which would cover the few things Tailwind can't really do. But honestly, as I gradiently integrated Tailwind into this project, the amount of customization needed kept dwindling, and I ended up deleting over half of my CSS. This made me apprciate what Tailwind does even more and I learned a LOT about Sass and CSS in the process (including why CSS preprocessors are not recommended with Tailwind). So I don't regret having gone to such great lengths only to undo a bunch of it.</p>
           </div>
         </div>
       </div>
@@ -189,17 +189,17 @@
         <div class="column relative md:overflow-visible px-7 lg:px-14">
           <div class="transform -skew-y-12 tri-pt md:tri-pb z-1">
             <h2>Slanted Boxes</h2>
-            <p>Let's start with the easier one. "Slanted" boxes are pretty straight forward. Using Tailwind we need the <code>transform</code> class to do any slanting (or any box shape manipulation). It doesn't do anything by itself, it just sets the stage, so to speak. Then we can use any of Tailwind's transform classes we want. (The way they made that work using CSS variables is pretty ingenius if you ask me.)</p>
+            <p>Let's start with the easier one. "Slanted" boxes are pretty straight forward. Using Tailwind we need the <code>transform</code> class to do any slanting (or any box shape manipulation). The class is simply <code>transform</code>. It doesn't do anything by itself, it just sets the stage, so to speak. Then we can use any of Tailwind's transform classes we want. (The way they made that work using CSS variables is pretty ingenius, if you ask me.)</p>
             <h3><code>transform skew-y-12</code></h3>
-            <p>For this demo I chose <code>skew-y-12</code>, which skews the element by 12 degrees along the Y axis (up/down). I actually need 14 for my project, but that gets into customizing Tailwind, which is beyond the scope of this demo. So 12 degrees will do, and we just have to remember that number when we add our Tailwind classes.</p>
+            <p>For this demo I chose <code>skew-y-12</code>, which skews the element by 12 degrees along the Y axis (vertically).</p>
           </div>
         </div>
         <div class="column relative overflow-hidden md:overflow-visible px-7 lg:px-14">
           <div class="transform -skew-y-12 pt-7 md:tri-pt z-1">
             <h3>Nesting and Inheritance</h3>
-            <p>Transforms behave like they are inherited, in a sense, even though technically they're not. When you apply any transform to an element (skew, rotate, scale, etc.), all content within is also transformed in that way. So in order to skew a box and not it's content we have to "unskew" that content. So we need the opposite of a 12 degree skew, which would be -12 degrees. With Tailwind, all we have to do to convert a value to negative is add a hyphen (-) in font of it.</p>
+            <p>Transforms behave like they are inherited, in a sense, even though technically they're not. When you apply any transform to an element (skew, rotate, scale, etc.), all content within it is also transformed in that way as one whole group. In order to skew a box and not what's inside we have to "unskew" the inner content. So we need the opposite of a 12 degree skew, which would be -12 degrees. With Tailwind, all we have to do to convert a value to negative is add a hyphen (-) in front of it.</p>
             <p><code>transform -skew-y-12</code></p>
-            <p>If we then want to "reskew" something nested with that, we simply use the first set of classes again.</p>
+            <p>If we then want to "reskew" something nested within that, we simply use the first set of classes again.</p>
             <ul class="italic relative tri-py">
               <li class="transform skew-y-12 header-font"><code>transform skew-y-12</code> = "slant" or "reslant"</li>
               <li class="transform skew-y-12 header-font"><code>transform -skew-y-12</code> = "unslant"</li>
@@ -218,16 +218,16 @@
           <!--         <div class="absolute inset-0 reach-left bg-gray-600"></div> -->
           <div class="transform -skew-y-12 md:skew-y-0 md:-rotate-12 tri-py">
             <h2>Tilted Boxes</h2>
-            <p>You can immediatly see the difference "tilted" boxes have from "slanted" when you introduce columns (which you'll only see here on widers screens). It's almost such a different look that you could arguably say don't go together, design-wise. It's obvious with anything else box shaped as well, such as images. But certainly it's a really cool look on its own and quite popular, as can be observed in much of today's marketing. I'm a fan of it myself, so I wanted to do something to make its many caveats easier to cope with.</p>
+            <p>You can immediatly see the difference "tilted" boxes have from "slanted" when you introduce columns (which only appear here on widers screens). Design-wise, it's almost such a different look that you could arguably say they don't go together. It's obvious with anything else that is box shaped as well, such as images. But certainly it's a really cool look on its own and quite popular, as can be observed in much of today's marketing. I'm a fan of it myself, so I wanted to do something to make its many caveats easier to cope with.</p>
           </div>
         </div>
         <div class="column px-7 md:pr-14 lg:px-14">
           <div class="absolute inset-0 md:reach-right opacity-70 bg-gray-800"></div>
           <div class="relative italic md:not-italic tri-py z-1">
             <h3><code>transform rotate-12</code></h3>
-            <p>Just like the "slanted" box, all we need is Tailwinds transform classes, but this time we use rotation. And again, to "unrotate" what's inside we just add that hyphen in front of the <code>rotate-12</code> class</p>
+            <p>Just like the "slanted" box, all we need is Tailwind's transform classes, but this time we use rotation. Similarly, to "unrotate" what's inside we just add that hyphen in front of the <code>rotate-12</code> class</p>
             <p><code>transform -rotate-12</code></p>
-            <p>If we do want to combine slanting and rotating, and we want a consistent angle throughout the page, the skew and rotate values match, so we're sticking with 12 degrees for tilting as well, here.</p>
+            <p>If we do want to combine slanting and rotating, and we want a consistent angle throughout the page, the skew and rotate values match, so we're sticking with 12 degrees for tilting here as well.</p>
           </div>
         </div>
       </div>
@@ -239,9 +239,9 @@
         <div class="column relative md:overflow-visible px-7 lg:px-14">
           <div class="transform -skew-y-12 md:skew-y-0 md:-rotate-12 md:tri-pt-1/2 tri-pb relative z-1">
             <h3>Tilt Caveats</h3>
-            <p>Because tilted boxes are actually rotated, we now get into some problematic geometry, some of which CSS provides little to no access to resolve mathmatically. Rotating a tall block of text for instance means one verticle end (top or bottom) swings off in one direction and the alternate end swings off the other way, naturally.</p>
+            <p>Because tilted boxes are actually rotated, we now get into some problematic geometry, some of which CSS provides little to no access to resolve mathmatically. Rotating a tall block of text for instance means one vertical end (top or bottom) swings off in one direction and the alternate end swings off the other way, naturally. And the taller the box is, the more this happens.</p>
             <p>To compound the matter, text blocks are very frequently much taller and narrower on mobile devices than on devices with wider screens. It seems rotation is also harder for the system to calculate than skewing is.</p>
-            <p>For these reasons, I would recommend reserving "tilting" for wider devices, as much as possible. This is one of the first areas where Tailwind really shines, with its media query syntax.</p>
+            <p>For these reasons, I would recommend reserving "tilting" for wider devices as much as possible. This is one of the first areas where Tailwind really shines, with its media query syntax.</p>
           </div>
         </div>
         <div class="column relative overflow-hidden md:overflow-visible px-7 md:pr-14 lg:px-14">
@@ -252,8 +252,8 @@
             <h4>Media Queries</h4>
             <p>With Tailwind, simply prepend <code>md:</code> to the class you only want applied to the medium breakpoint on up, or use another one of its breakpoint specifier (<code>sm:</code>, <code>lg:</code>, <code>xl:</code>, <code>2xl:</code>). Example:</p>
             <p><code>skew-y-12 md:skew-y-0 md:rotate-12</code></p>
-            <p>The above classes will skew 12 degrees (on the Y axis), then "unskew" and rotate 12 degrees at the medium breakpoint. "Unskewing" is necessary as both skew and rotate can be applied concurrently. Neither one overrides the other. In this way, we are following a mobile-first principle, as <code>skew-y-12</code> is set for all devices, and the rest is ignored by the smaller devices. Smaller devices would be more prone to exhibiting a lag when having to process overrides, so we let larger, more powerful devices deal with that.</p>
-            <p>I've designed most of these clases to follow the same pattern and use these same breakpoint prefixes.</p>
+            <p>The above classes will skew the box 12 degrees (on the Y axis), then at the medium breakpoint, "unskew" and instead <span class="underline">rotate</span> 12 degrees. ("Unskewing" is necessary as both skew and rotate can be applied concurrently. Neither one overrides the other.) In this way, we are following the mobile-first principle, as <code>skew-y-12</code> is set for all devices, but overidden on larger devices only. Smaller devices would be more prone to exhibiting a lag when having to process overrides, so we let larger, more powerful devices deal with that.</p>
+            <p>Note: I've designed most of my custom clases to follow this pattern and use these same breakpoint prefixes, in substitute for proper Tailwind costumization.</p>
           </div>
         </div>
       </div>
@@ -290,9 +290,9 @@
           <div class="absolute inset-0 md:reach-right z-1 bg-gray-600"></div>
           <div class="transform py-14 -skew-y-12 md:skew-y-0 relative">
             <h2 class="transform rotate-12 md:-rotate-12">Utilitarian Flexibility</h2>
-            <p class="transform rotate-12 md:-rotate-12">Aside from the reasons mentioned above, the utilitarian approach we're using in this demo gives us much flexibility.</p>
-            <p class="transform rotate-12 md:-rotate-12">I wanted to be able to do things like reverse row directions and insert an number of columns.</p>
-            <p class="transform rotate-12 md:-rotate-12">You might have noticed this row is reversed (except on small devices), yet we still haven't had to come up with any costume CSS for it.</p>
+            <p class="transform rotate-12 md:-rotate-12">Aside from the reasons mentioned above, the utilitarian approach we're using in this demo gives us a lot of flexibility.</p>
+            <p class="transform rotate-12 md:-rotate-12">I wanted to be able to do things like reverse row directions and insert any number of columns.</p>
+            <p class="transform rotate-12 md:-rotate-12">You might have noticed this row is reversed (except on small devices), yet we still haven't had to come up with any costum CSS for it.</p>
             <p class="transform rotate-12 md:-rotate-12">So far Tailwind covers everything we have aimed to achieve, and we can control and understand it right within our HTML.</p>
           </div>
         </div>
@@ -303,7 +303,7 @@
           </div>
           <div class="relative pb-14 md:tri-pb">
             <p class="md:transform md:-rotate-12 italic md:not-italic">So if we can do almost everything we need to in this demo with Tailwind CSS, what's left and what's the point of this demonstration?</p>
-            <p class="md:transform md:-rotate-12 italic md:not-italic">Focusing again on the corners of a skewed or rotated box, have you noticed we are actually now dealing with a triangular space?</p>
+            <p class="md:transform md:-rotate-12 italic md:not-italic">Focusing again on the corners of a skewed or rotated box, have you noticed we are actually now dealing with triangular spaces?</p>
             <p class="md:transform md:-rotate-12 italic md:not-italic">And if you change the width of this viewport, have you noticed those triangular spaces scale with a proportional aspect-ratio?</p>
           </div>
         </div>
@@ -316,7 +316,9 @@
           <div class="absolute inset-0 reach-left bg-gray-800 md:bg-gray-700"></div>
           <div class="relative -skew-y-12 md:skew-y-0 transform tri-py">
             <h2>Triangular Padding</h2>
-            <p>Tailwind's default measurement system mostly uses <code>rem</code> units. This is fine in most cases, but not very practical for maintaining our necessary aspect-ratio. You could customize Tailwind to use something like <code>vw</code> or <code>cqw</code>, but this isn't recommended. Generally, Tailwind should be used as-is and only added to, if anything. Tailwind allows us to use arbitrary values in our HTML such as <code>pt-[12cqw]</code> (<code>padding-top: 12cqw;</code>), and that may be considered better practice. I'm not a fan of the idea, myself. To adhere to an aspect-ratio, the container width needs to be observed so the proper space can be calculated accordingly. We really need to use the <code>cqw</code> unit or at least <code>vw</code>. Without this, the tops and bottoms of the tilted or slanted elements will either be too big on some devices, or the text will spill out on other devices, or both.</p>
+            <p>Tailwind's default measurement system mostly uses <code>rem</code> units. This is fine in most cases, but not very practical for maintaining our necessary aspect-ratio. You could customize Tailwind to use something like <code>vw</code> or <code>cqw</code>, but this isn't recommended. Generally, Tailwind should be used as-is and only added to, if anything.</p>
+            <p>Note: Tailwind (when compiled, but not as a CDN) allows us to use arbitrary values such as <code>pt-[12cqw]</code> and that may be considered better practice than creating custom classes.</p>
+            <p>To adhere to an aspect-ratio, the container width needs to be observed so the proper space can be calculated accordingly. We really need to use the <code>cqw</code> unit or at least <code>vw</code>. Without this, the tops and bottoms of the tilted or slanted elements will either be too big on some devices, or the text will spill out of the box on other devices, or both.</p>
           </div>
         </div>
         <div class="column relative transform">
@@ -333,7 +335,7 @@
       </div>
       <div class="flex flex-col md:flex-row">
         <div class="column transform italic px-7 pt-14 md:pb-14 lg:px-14">
-          <p>So our first custom class will address the triangular space we get from skewing and rotating. Now to make it easy-ish to remember these new classes, and since most classes used in the project are those of Tailwind, let's follow Tailwind's syntax as much as we can. Tailwind syntax is short, so for "triangular space" let's just use <code>tri-</code>. Then, as this is a type of padding, let's borrow Tailwind's <code>pt</code>, <code>pb</code>, etc. And since this is custom, we don't need to support tons of variants like <code>tri-pt-6</code>, <code>tri-pt-7</code>, ..., etc. Let's just use the container aspect-ratio that will work for our project, which in this case is <code>12cqw</code>. (I just played around with it to find that number, but usually this would be close to the number of degrees you are using for your slants and tilts.)</p>
+          <p>So our first custom class will address the triangular space needed to compensate for skewing and rotating. Now to make it easy-ish to remember these new classes, and since most classes used in the project are those of Tailwind, let's follow that syntax as much as we can. Tailwind syntax is short, so for "triangular space" let's just use <code>tri-</code>. Then, as this is a type of padding, let's borrow Tailwind's <code>pt</code>, <code>pb</code>, etc. And since this is custom, we don't need to support tons of variants like <code>tri-pt-6</code>, <code>tri-pt-7</code>, etc. Let's just use the container aspect-ratio that will work for our project, which in this case is <code>12cqw</code>. (I just played around with it to find that number, but usually this would be close to the number of degrees you are using for your slants and tilts.)</p>
         </div>
         <div class="column transform -skew-y-12 px-7 lg:px-14">
           <p class="tri-pt">Here are the classes for the job:</p>
@@ -350,7 +352,9 @@
     <section class="transform skew-y-12 relative bg-gray-800 py-14 lg:py-20">
       <div class="max-w-screen-md mx-auto px-7 lg:px-14 bg-gray-800 italic">
         <h2>Containers and Query Units</h2>
-        <p>Note that this (the above, regarding <code>cqw</code>) means the container has to be a container. Yep, it's a thing, and it's not just any old wrapper. A container is explicitly declared as such. Otherwise, how would container query units (<code>cqh</code>, <code>cqw</code> and <code>cqi</code>) know which "container" to base itself on when it's nested multiple levels deep. If it were to always based itself on the size of its immediate parent (which is what I thought it did), that would be useless in some situations, or could get very messy as we would tend to declare too many containers. Fortunately, the viewport essentially acts as though it is automatically declared as a container, meaning if you have no containers defined, <code>cqw</code> equates to <code>vw</code>, <code>cqh</code> equates to <code>vh</code>, etc.
+        <p>Note that this (the above, regarding <code>cqw</code>) means the container has to be a container. Yep, it's a thing, and it's not just any ol' wrapper. A container is explicitly declared as such. Otherwise, how would container query units (<code>cqh</code>, <code>cqw</code> and <code>cqi</code>) know which "container" to base itself on when it's nested multiple levels deep. If it were to always base itself on the size of its immediate parent (which is what I thought it did), that would be useless in some situations, or could get very messy as we would tend to declare too many containers.</p>
+            <p>"Okay. But what if we use a container query unit and there is no parent 'container' defined?"</p>
+            <p>Fortunately, the viewport essentially acts as though it is automatically declared as a container, meaning if you have no parent containers, <code>cqw</code> equates to <code>vw</code>, <code>cqh</code> equates to <code>vh</code>, etc.
       </div>
     </section>
   
@@ -361,14 +365,14 @@
       <div class="column px-7 lg:px-14">
         <div class="transform tri-pt md:tri-pb pb-4 -skew-y-12">
           <h2>Columns</h2>
-          <p>Here we've created a <code>column</code> class with <code>container-type: inline-size</code>, which gives us something to reference for the size of the triangular padding, rather than referring to the viewport size. I wasn't able to find a Tailwind class to set the container-type (maybe because it's pretty new), hence I created my own. Because of this, I made my <code>column</code> class serve several other purposes.</p>
+          <p>Here we've created a <code>column</code> class with <code>container-type: inline-size</code>, which gives us something to reference for the size of the triangular padding, rather than referring to the viewport size. (I wasn't able to find a Tailwind class to set the container-type&mdash;maybe because it's pretty new in CSS, hence I created my own.) For efficiency, we can make our <code>column</code> class serve several purposes:</p>
         </div>
       </div>
       <div class="column px-7 lg:px-14">
         <ul class="transform tri-pb md:tri-pt -skew-y-12 md:skew-y-0 md:italic">
-          <li>I added a couple other column-related CSS rules to it as well, to reduce the amount of classes needed when declaring a column in my HTML.</li>
-          <li>With its unmistakable name, it's much easier to find my columns in my HTML and see its bounaries, which is nice.</li>
-          <li>Because I've added the bare minimum CSS to make it a column, I pretty much of have another useful utility now, with nearly as much flexibility as Tailwind's classes.</li>
+          <li>We can add a couple other column-related CSS rules to it, to reduce the amount of classes needed when declaring a column in our HTML.</li>
+          <li>With its unmistakable name, it will be much easier to find our columns in my HTML and see its bounaries, which is nice.</li>
+          <li>Adding the bare minimum CSS to make it a column, we pretty much have another useful utility now, with nearly as much flexibility as Tailwind's classes.</li>
         </ul>
       </div>
     </section>
@@ -387,12 +391,12 @@
             <img class="tri-cover mb-0 opacity-50" src="https://images.unsplash.com/photo-1446071103084-c257b5f70672?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3MjQ5NTcyNTF8&ixlib=rb-4.0.3&q=55" alt="Succulent garden">
           </div>
           <div class="relative -skew-y-12 transform md:skew-y-0 tri-pb md:tri-py">
-            <p>Now when we have a straightened or untilted image inside a tilted box we often get the corner problem again. That is, the image corners want to spill out. In some cases we can fix this by adding <code>overflow-hidden</code>, to the tilted box. But depending on your edge case, there may still be another "corner" problem (or more of a "hole" problem).</p>
+            <p>Now when we have a "re-straightened" or "untilted" image inside a tilted box we often get the corner problem again. That is, the image corners want to spill out. In some cases we can fix this by adding <code>overflow-hidden</code>, to the tilted box. But depending on your edge case, there may still be another "corner" problem (or more of a "hole" problem).</p>
           </div>
         </div>
         <div class="column content-center transform -skew-y-12 md:skew-y-0 px-7 lg:px-14">
           <div class="tri-pb md:tri-py">
-            <p>In probably most cases, we want the image to fill the container, but an untilted image inside a tilted box leaves holes. And this is the case even with all the CSS we normally use to make an image fill an area. CSS doesn't see what we see. If you tell it to rotate something, it just rotates it in place. It sees no consequential need to resize anything if we didn't ask it to. So to force the image to occupy those holes, we have to tell the browser to scale it up larger than the tilted box it sits within.</p>
+            <p>In probably most cases, we want the image to fill the container, but an untilted image inside a tilted box leaves holes. This will be the case even if we use all the CSS we normally use to make an image fill an area. CSS doesn't see what we see. If you tell it to rotate something, it just rotates it in place. It sees no consequential need to resize anything if we didn't ask it to. So to force the image to occupy those holes, we have to tell the browser to scale it up larger than the size of the tilted box it sits within.</p>
           </div>
         </div>
       </div>
@@ -424,7 +428,7 @@
         <div class="column transform -skew-y-12 md:skew-y-0 md:-rotate-12 px-7 md:pr-16 lg:px-14">
           <div class="tri-pt md:tri-py">
             <h3>Backgrounds in Columns</h3>
-            <p class="pb-4 md:pb-0">For the most part, we can get the background to fill a column with positioning, hiding overflow and sometimes upscaling. But in a tilted row, the first and last columns tend to have holes (or gaps, I suppose). Rotating the box moves some of the corners outward (as we have covered above), but what about the opposing corners that are brought inward? This doesn't harm scrolling, but it unsightly, isn't it?</p>
+            <p class="pb-4 md:pb-0">For the most part, we can get the background to fill a column with positioning, hiding overflow and sometimes upscaling. But in a tilted row, the first and last columns tend to have holes (or gaps, if you prefer). Rotating the row moves some of the corners outward (as we have covered above), but what about the opposing corners that are brought inward? This doesn't harm scrolling, but it is unsightly, isn't it?</p>
           </div>
         </div>
         <div class="column transform -skew-y-12 md:skew-y-0 md:-rotate-12 px-7 lg:px-14">
@@ -433,17 +437,17 @@
             <ul>
               <li><code>reach</code></li>
               <li><code>reach-left</code></li>
-              <li><code>reach-left</code></li>
+              <li><code>reach-right</code></li>
               <li><code>reach-0</code></li>
-              <li><code>reach-right-0</code></li>
+              <li><code>reach-left-0</code></li>
               <li><code>reach-right-0</code></li>
             </ul>
-            <p>The <code>*-0</code> classes are for overriding the others at higher breakpoints. So <code>md:reach-left</code> won't start doing it's thing until the medium breakpoint, then if you needed to deactivate that at the next breakpoint you could use <code>lg:reach-left-0</code>.</p>
+            <p>The <code>-0</code> classes are for overriding the others at higher breakpoints. So <code>md:reach-left</code> won't start doing it's thing until the medium breakpoint, then if you needed to deactivate that at the next breakpoint you could use <code>lg:reach-left-0</code>.</p>
           </div>
         </div>
         <div class="column transform -skew-y-12 md:skew-y-0 md:-rotate-12 px-7 lg:px-14">
           <div class="tri-pb md:tri-py">
-            <p>The way these work is by simply stretching the side edges out beyond their boundaries (by 50% of the container width) and then adding that much padding on that edge. The background, if properly set up, ignores the padding and bleeds off the page like with the box, while the inner content is remains constrained by the box within the padding.</p>
+            <p>The way these work is by simply stretching the side edges out beyond their boundaries (by 50% of the container width) and then adding that much padding on that edge. The background, if properly set up, ignores the padding and bleeds off the page with the box, while the inner content is constrained by the padding.</p>
           </div>
         </div>
       </div>
@@ -457,12 +461,12 @@
         <div class="column transform -skew-y-12 md:skew-y-0 md:-rotate-12 px-7 lg:px-14">
           <div class="md:tri-py">
             <h2>Variables</h2>
-            <p>I love CSS variables. You can of course modify this css for your project if you choose to use it, but I used variables a lot to automatically calculate certain spacing and positioning properties. This makes it very easy to modify all of this for other projects, or at least if you need to change the angle. So if you want to use Tailwind's <code>skew-y-6</code> (instead of <code>skew-y-12</code>), you can likely change the variables to <code>--angle-pos: 6deg</code>, <code>--angle-neg: -6deg</code>, <code>--triangle-pos: 6cqw</code>, and you should have all the right triangle padding, triangle background "cover" (fill), etc. (Or you shouldn't have to adjust much from there).</p>
+            <p>I love CSS variables. You can of course modify this CSS for your project if you choose to use it, but I used variables a lot to automatically calculate certain spacing and positioning properties. This makes it very easy to modify all of this for other projects, or at least if you need to change the angle.</p>
           </div>
         </div>
         <div class="column transform -skew-y-12 md:skew-y-0 md:-rotate-12 px-7 lg:px-14">
           <div class="tri-pb pt-4 md:tri-py">
-            <p>To follow the patterns of Tailwind more closely, these classes could have been written with numeric variants, like <code>tri-py-3</code>, instead of basing it all on these variables. Perhaps there is a good way to programatically do that in a tailwind.config file. But here on Codepen, supporting the same numeric increments as Tailwind would require a great deal of additional SCSS, and that is definitely not the point of this demonstration.</p>
+            <p>So if you want to use Tailwind's <code>skew-y-6</code> (instead of <code>skew-y-12</code>), you can likely change the variables to <code>--angle-pos: 6deg</code>, <code>--angle-neg: -6deg</code>, <code>--triangle-pos: 6cqw</code>, and you should have all the right triangular padding, triangular background "cover" (fill), etc. (Or you shouldn't have to adjust much from there).</p>
           </div>
         </div>
       </div>
